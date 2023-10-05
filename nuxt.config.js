@@ -1,48 +1,20 @@
-export default {
-  // Global page headers: https://go.nuxtjs.dev/config-head
-  head: {
-    title: 'src',
-    htmlAttrs: {
-      lang: 'en'
-    },
-    meta: [
-      {charset: 'utf-8'},
-      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-      {hid: 'description', name: 'description', content: ''},
-      {name: 'format-detection', content: 'telephone=no'}
-    ],
-    link: [
-      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
-    ]
-  },
-
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
-
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
-
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
-  ],
-
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
-}
 export default defineNuxtConfig({
+  runtimeConfig: {
+    apiKey: '',
+    public: {
+      baseURL: '' // Exposed to the frontend as well.
+    }
+  },
   postcss: {
     plugins: {
       tailwindcss: {},
-      autoprefixer: {},
-    },
+      autoprefixer: {}
+    }
   },
   css: ['~/css/tailwind.css'],
+  build: {
+    postcss: {
+      postcssOptions: require('./postcss.config.js')
+    }
+  }
 });
