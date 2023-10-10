@@ -5,6 +5,7 @@ export default {
     htmlAttrs: {
       lang: 'en'
     },
+    css: ['~/css/tailwind.css'],
     meta: [
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
@@ -15,12 +16,12 @@ export default {
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ]
   },
-
+  mode: 'universal',
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['@/plugins/apollo.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -33,16 +34,6 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {}
 }
-export default defineNuxtConfig({
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
-  },
-  css: ['~/css/tailwind.css'],
-});

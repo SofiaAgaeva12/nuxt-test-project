@@ -46,7 +46,24 @@
 </template>
 
 <script>
+import gql from 'graphql-tag'
 export default {
-  name: 'NuxtTutorial'
+  data() {
+    return {
+      items: null // Initialize the items property
+    };
+  },
+  apollo: {
+    // Simple query that will fetch the items
+    items: gql`
+      query {
+        items {
+          id
+          title
+        }
+      }
+    `
+  }
 }
+
 </script>
